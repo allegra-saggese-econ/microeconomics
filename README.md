@@ -16,22 +16,22 @@ They include theorems, definitions, proofs, explanations, examples, and problem 
 
 
 ### Use Cases
-	*	*PhD students*: Core reference for Microeconomic Theory I & II to supplement your own, or cross-check your own course learnings
-	*	*Undergrad/MSc students*: Overview of key topics covered in a PhD sequence
-	*	*Researchers & Instructors*: Teaching and review resource
+- *PhD students*: Core reference for Microeconomic Theory I & II to supplement your own, or cross-check your own course learnings
+- *Undergrad/MSc students*: Overview of key topics covered in a PhD sequence
+- *Researchers & Instructors*: Teaching and review resource
 
 ### Key Topics Covered
-	* Consumer & Producer Theory: Preferences, demand, duality, firm behavior
-	*	Choice Under Uncertainty: Expected utility, risk aversion, stochastic dominance
-	*	Game Theory: Strategic and extensive form games, Nash equilibrium, subgame perfection
-	*	Mathematical Foundations: Fixed point theorems, convexity, optimization, utility maximization
+- Consumer & Producer Theory: Preferences, demand, duality, firm behavior
+- Choice Under Uncertainty: Expected utility, risk aversion, stochastic dominance
+- Game Theory: Strategic and extensive form games, Nash equilibrium, subgame perfection
+- Mathematical Foundations: Fixed point theorems, convexity, optimization, utility maximization
  
 
 For feedback, corrections, or suggestions, please email me at [my email](absaggese@ucsc.edu)
 
 ### Other useful references to supplement these notes 
-Student guide for the KREPS book found at [Stanford's website - retired in 2025](https://microfoundations1.stanford.edu/), maintained by [Princeton](https://press.princeton.edu/student-resources/microeconomic-foundations-i)
-Francesco Nava (LSE) notes on game theory found at [his website](https://personal.lse.ac.uk/nava/Teaching.html)
-Kristy Kim (UC Berkeley) notes on microeconomics fount on [her website](https://kristykim.github.io/) 
+- Student guide for the KREPS book found at [Stanford's website - retired in 2025](https://microfoundations1.stanford.edu/), maintained by [Princeton](https://press.princeton.edu/student-resources/microeconomic-foundations-i)
+- Francesco Nava (LSE) notes on game theory found at [his website](https://personal.lse.ac.uk/nava/Teaching.html)
+- Kristy Kim (UC Berkeley) notes on microeconomics fount on [her website](https://kristykim.github.io/) 
 
 
