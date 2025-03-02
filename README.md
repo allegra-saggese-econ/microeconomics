@@ -1,5 +1,5 @@
 ## First Year sequence: microeconomics
-- [ x ] Quarter 1: Producer and consumer theory, monotone comparative statistics, firm theory, uncertainty
+- [x] Quarter 1: Producer and consumer theory, monotone comparative statistics, firm theory, uncertainty
 - [ ] Quarter 2: Game theory including bayesian games, nash, cornout and bertrand competition
 - [ ] Quarter 3: Partial general equilibrium theory, welfare
 ***
