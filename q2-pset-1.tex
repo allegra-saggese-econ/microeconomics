@@ -1,0 +1,867 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{fancyhdr} % For custom headers and footers
+\usepackage{geometry} % For page layout
+\geometry{a4paper, margin=1in}
+
+\pagestyle{fancy} % Activate the fancyhdr package
+\fancyhf{} % Clear all header and footer fields
+
+\fancyhead[R]{\textbf{Saggese \thepage}} % Right-aligned text
+
+% Optional: Header rule customization
+\renewcommand{\headrulewidth}{0.4pt} % Width of the header line
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1in} % Vertical space at the top
+    {\Large Problem Set 1} \\[1.5cm] % Subtitle
+
+
+    {\Large \textbf{Allegra Saggese}} \\[0.5cm] % Author name
+    {\large Microeconomics 204B} \\[1.5cm]
+
+    {\large Monday, February 3, 2025} % Display today's date
+    \\[2cm] % Space before additional text
+
+\end{titlepage}
+
+\section{Problem 1}
+
+\[
+\text{NFG game set up:} \quad 
+\begin{array}{c|c|c}
+\text{Players} & s_i & \sigma_i \\
+\hline
+P_1 & a, b & pa + (1-p)b \\
+P_2 & a,b  & qa +(1-q)b \\
+P_3 & a, b & ra + (1-r)b
+\end{array}
+\]
+
+Let the mixed strategy for Player 1 be represented as:
+\[
+p(a) + (1-p)b, \quad \text{where } p + (1-p) = 1 \implies \sum\sigma_i(s_i) = 1
+\]
+We need to show the LHS proves the RHS, as below: 
+\[
+u_i(\sigma_i' s_{-i}) > u_i(\sigma_i, s_{-i}) \implies u_i(\sigma_i' \sigma_{-i}) > u_i(\sigma_i, \sigma_{-i}) 
+\]
+This translates to 
+\[
+u_i([p' \cdot a + (1-p')b], (a \text{ or } b)) > u_i([pa + (1-p)b], (a \text{ or } b)) \implies \]
+\[
+u_i([p' \cdot a + (1-p')b], [q \cdot a + (1-q)b]) > u_i([pa + (1-p)b], [q \cdot a + (1-q)b]) 
+\]
+
+\noindent This should hold for both Player 2, and Player 3's strategies. I am going to show that a mixed strategy must hold over the pure strategies of opponents, in order to also hold over the mixed strategies of the opponents. 
+
+\[
+s_i \text{ (Player 1)} : s_i \in S_i = \{a, b\}, \quad \text{for } i = 1, 2, 3.
+\]
+
+For $s_{-i}$ (opponents $P_2$ and $P_3$):
+\[
+s_{-i} \in S_{-i} = \{(a, a), (a, b), (b, a), (b, b)\}.
+\]
+
+Let $\sigma_i : \{p, q, r\}$ represent the strategies for $i = 1, 2, 3$. If Player 1 is playing against opponents, we need to show:
+\[
+u_1(p; q, r) > u_1(p; q, r) \quad \forall q, r.
+\]
+I show strict dominance against mixed strategies implies strict dominance against pure strategies.
+
+\[
+\sum_{s_i \in S_{-i}} \Bigg[ \prod_{k < s_k} \sigma_k(s_k) \Bigg] \Big[ u_i(\sigma_i', s_{-i}) - u_i(\sigma_i, s_{-i}) \Big]
+\]
+
+\[
+\implies \sum \Bigg[ \prod_{k} \sigma_k(s_k) \Bigg] = \Big[ \Pi(pa + (1-p)b) \Big] \Big[ u_i(p', q(a)) - u_i(p, (1-q)b) + \ldots] 
+\]
+So: 
+\[
+ u_i(p', q,r) - u_i(p, q,r) = \Big[ u_i(p', a, a) - u_i(p, a, a) \Big](q \cdot r) +
+\]
+
+\[
+\Big[ u_i(p', a, b) - u_i(p, a, b) \Big](q\cdot r(1-r)) + 
+\Big[ u_i(p', b, a) - u_i(p, b, a) \Big](1-q\cdot r)(r) +
+\]
+
+\[
+\Big[ u_i(p', b, b) - u_i(p, b, b) \Big](1-q)(r)(1-r)
+\]
+
+\[
+\text{Recall: } (1-r)(1-q) \sim b, \quad (r)(q) \sim a \quad \text{(i.e., the probabilities are given.)}
+\]
+
+\[
+\text{Now we show, from the expanded version above: } u_i(p', q,r) - u_i(p, q,r) \geq 0
+\]
+\[
+\text{We know } u_i(p', q_r) - u_i(p, q_r) > 0 \implies p' \text{ strictly dominates } p\cdot \sigma_1.
+\]
+
+\[
+\text{Let us assume by contradiction: } u_i(p, \{ \{a, a\}, \{a, b\}, \{b, a\}, \{b, b\} \}) - u_i(p, s_{-i}) < 0,
+\]
+where
+\[
+s_{-i} \in S_{-i} = \{ \{a, a\}, \{a, b\}, \{b, a\}, \{b, b\} \} .
+\]
+
+\[
+\text{By definition: If } u_i(p, s_{-i}) - u_i(p', s_{-i}) \leq 0,
+\]
+\[
+\text{then } \exists \text{ some } p \text{ that dominates } p' \text{ by definition of dominance, } 
+\]
+\[
+\text{i.e., } u_i(p, s_{-i}) > u_i(p', s_{-i}).
+\]
+
+\[
+\text{If this holds, } u_i(p, q, r) > u_i(p', q, r),
+\]
+\[
+\text{then } u_i(p', q, r) - u_i(p, q, r) \not\geq 0 \implies \text{CONTRADICTION.}
+\]
+
+\[
+\text{Where strict dominance would mean } \exists p' \in \Delta(s_i) \text{ s.t. for all } \sigma_{-i} \in \prod_{j \neq i} \Delta(S_j),
+\]
+\[
+\text{the inequality holds.}
+\]
+
+\section{Problem 2}
+Intuitively, we use the mixed strategies, composed of the pure strategies, and we start the process of iterative deletion by cutting \textbf{strictly dominated} pure strategies. It is impossible for any mixed strategy with a purely dominated strategy to remain in the game.
+
+\begin{itemize}
+    \item If $s_i$ is \textbf{strictly dominated}, so is $\sigma_i(s_i)$ where $\sigma_i(s_i) > 0$ (probability non-zero).
+    
+    \item for the \textbf{definition of strict dominance, we know the following inequality will hold:}
+    \[
+    u_i(s_i', s_{-i}) > u_i(s_i, s_{-i}) \quad \forall s_{-i}.
+    \]
+    This implies that $s_i$ may be dominated by a mixed strategy $\sigma_i(s_i')$, and not that any mixed strategy dominates $s_i$. 
+    
+    \item Let’s say:
+    \[
+    u_i(\sigma_i', s_{-i}) > u_i(s_i, s_{-i}),
+    \]
+    then $s_i$ is strictly dominated by the mixed strategy $\sigma_i$, where $\sigma_i(s_i) > 0$ (non-negative probability), and:
+    \[
+    u_i(s_i', s_{-i}) - u_i(s_i, s_{-i}) > 0.
+    \]
+
+    \item Therefore:
+    \[
+    u_i(\sigma_i, s_{-i}) = \sum_{s_i} \sigma_i(s_i) u_i(s_i, s_{-i}),
+    \]
+    which can be expanded, with the mixed strategy as:
+    \[
+    u_i(\sigma_i, s_{-i}) = \sum_{s_i} \sigma_i(s_i) \left[ u_i(\sigma_i, s_{-i}) - u_i(\sigma_i', s_{-i}) \right].
+    \]
+
+  %  \item If $\sigma_i(s_i) > \sigma_i'(s_i)$ and $u_i(\sigma_i, s_{-i}) - u_i(\sigma_i', s_{-i}) \leq 0$, then $s_i$ is \textbf{purely dominated}.
+
+    \item This simplifies to:
+    \[
+    u_i(\sigma_i, s_{-i}) = \sum\sigma_i(s_i) \left[ u_i(\sigma_i, s_{-i}) - \sigma_i'(s_i')u_i(s_i', s_{-i}) \right],
+    \]
+    \[ = u_i(\sigma_i, s_{-i}
+    \]
+    \item Finally:
+    \[
+    u_i(\sigma_i, s_{-i}) - u_i(\sigma_i', s_{-i}) \leq 0.
+    \]
+    Hence, a mixed strategy will be strictly dominated if it includes any dominated pure strategies.
+\end{itemize}
+
+\section{Problem 3}
+Here we show that in the first game, there is a unique solution, because only strictly dominated strategies are eliminated. In the second game, we show there are strategies that are weakly dominated, and when performing iterative deletion over these games, then we end up with different strategies for a best response. We start with a game where each player (\textbf{P1, P2, P3}) has a choice of \{L, U, M\}. Each game below is between P2 and P3, conditional on P1's choice. 
+
+\subsection*{Game Matrices}
+
+\textbf{Game where Player 1 plays $L$:}
+\[
+\text{\textbf{Player 3}}
+\]
+\[
+\makebox[0pt][r]{\text{\textbf{Player 2 }} \quad}
+\begin{array}{c|c|c|c|}
+ & L & U & M \\
+ \hline
+L & 2,0,1 & 5,0,5 & 1,3,3 \\
+\hline
+U & 2,8,4 & 5,2,0 & 1,10,20 \\
+\hline
+M & 2,8,3 & 6,2,1 & 1,10,10 \\
+\hline
+\end{array}
+\]
+
+\noindent \textbf{Game where Player 1 plays $M$:}
+\[
+\text{\textbf{Player 3}}
+\]
+\[
+\makebox[0pt][r]{\text{\textbf{Player 2 }} \quad}
+\begin{array}{c|c|c|c|}
+ & L & U & M \\
+ \hline
+L & 2,7,3 & 5,8,2 & 2,0,5 \\
+\hline
+U & 3,8,3 & 6,3,1 & 6,1,12 \\
+\hline
+M & 5,5,3 & 8,2,2 & 6,2,12 \\
+\hline
+\end{array}
+\]
+
+\noindent \textbf{Game where Player 1 plays $U$:}
+\[
+\text{\textbf{Player 3}}
+\]
+\[
+\makebox[0pt][r]{\text{\textbf{Player 2 }} \quad}
+\begin{array}{c|c|c|c|}
+& L & U & M \\
+\hline
+L & 0,4,1 & 1,6,1 & 0,10 \\
+\hline
+U & 1,3,1 & 8,8,1 & 0,12 \\
+\hline
+M & 0,2,1 & 0,4,1 & 0,12 \\
+\hline
+\end{array}
+\]
+This is the first path, where if you delete strictly dominated strategies, you get the solution set, $S = \{M, M, M\}$. 
+
+\begin{align*}
+& \text{L strictly dominated for P2} \\
+& \text{U strictly dominated for P3} \\
+& \text{U strictly dominated for P1} \\
+& \text{L strictly dominated for P1} \\
+& \text{L strictly dominated for P3} \\
+& \text{U strictly dominated for P2} \\
+\end{align*}
+
+
+Alternative path with strategic dominance:
+\begin{align*}
+& \text{U strictly dominated for P2} \\
+& \text{U strictly dominated for P3} \\
+& \text{U strictly dominated for P1} \\
+& \text{L strictly dominated for P1} \\
+& \text{L strictly dominated for P3} \\
+& \text{U strictly dominated for P2}
+\end{align*}
+
+
+
+The solution set is given as:
+\[
+S = \{M, M, M\}.
+\]
+
+\subsection*{Path Dependency Table}
+
+\textbf{Path Dependency:} % REDO 
+\noindent \textbf{Game where Player 1 plays $L$:}
+\[
+\text{\textbf{Player 3}}
+\]
+\[
+\makebox[0pt][r]{\text{\textbf{Player 2 }} \quad}
+\begin{array}{c|c|c|c|}
+\hline
+& L & U & M \\
+\hline
+L & 2,6,0 & 1,6,0 & 0,6,0  \\
+\hline
+U & 2,6,0 & 1,6,0 & 0,6,0 \\
+\hline
+M & 10,5,0 & 11,1,0 & 10,1,0  \\
+\hline
+\end{array}
+\]
+
+\noindent \textbf{Game where Player 1 plays $U$:}
+\[
+\text{\textbf{Player 3}}
+\]
+\[
+\makebox[0pt][r]{\text{\textbf{Player 2 }} \quad}
+\begin{array}{c|c|c|c|}
+\hline
+& L & U & M \\
+\hline
+L & 4,6,20 & 2,6,0 & 1,6,1  \\
+\hline
+U & 5,6,0 & 2,6,1 & 1,6,2 \\
+\hline
+M & 10,0,10 & 2,0,3 & 10,0,0  \\
+\hline
+\end{array}
+\]
+
+\noindent \textbf{Game where Player 1 plays $M$:}
+\[
+\text{\textbf{Player 3}}
+\]
+\[
+\makebox[0pt][r]{\text{\textbf{Player 2 }} \quad}
+\begin{array}{c|c|c|c|}
+\hline
+& L & U & M \\
+\hline
+L & 3,6,20 & 6,6,1 & 8,6,2  \\
+\hline
+U & 3,6,20 & 6,6,0 & 8,6,5 \\
+\hline
+M & 12,0,20 & 6,0,6 & 11,11,1  \\
+\hline
+\end{array}
+\]
+
+First Solution, with elimination via weak dominance: $\{U, L, L\}$
+
+\begin{align*}
+& \text{L strictly dominated for P1} \\
+& \text{M strictly dominated for P2} \\
+& \text{U strictly dominated for P3} \\
+& \text{M strictly dominated for P3} \\
+& \text{U \textbf{weakly} dominated for P2} \\
+& \text{M strictly dominated for P1}
+\end{align*}
+
+Second Solution, with elimination via weak dominance: $\{U, U, L\}$
+
+\begin{align*}
+& \text{L strictly dominated for P1} \\
+& \text{M strictly dominated for P2} \\
+& \text{U strictly dominated for P3} \\
+& \text{M strictly dominated for P3} \\
+& \text{L \textbf{weakly} dominated for P2} \\
+& \text{M strictly dominated for P1}
+\end{align*}
+
+\section{Problem 4}
+
+\subsection{Part a}
+\begin{itemize}
+    \item Let $N > 3$ and $s_i \in S_i$, where $s_i \in [1, 100]$. 
+    
+    \item The payout structure:
+    \[
+    \text{Whoever gets } \frac{\sum_{i=1}^n s_i}{n}\cdot \frac{1}{3} \rightarrow \text{\$100 payout.}
+    \]
+    Others get \$0, or if there is a tie, they split $\frac{100}{n}$ payout.
+
+    \item No pure strategy strictly dominates another:
+    \[
+    \text{Contradiction: } u_i(s_i^*, s_{-i}) > u_i(s_i, s_{-i}) \quad \forall s_i, s_{-i} \in S_i, \text{ where } s_i \neq s_i^*.
+    \]
+    
+    \item $\frac{\sum_{i=1}^n s_i}{n} \to \max$ at $33 \frac{1}{3}$ (if everyone chooses $100 \to N = \infty \to$ then $\text{avg} = 100/3 = 33 \frac{1}{3}$).
+
+    \[
+    w = \{1, \dots, 33\} \text{ only as the potential payout}.
+    \]
+
+    \item Then:
+    \[
+    \frac{33}{3} = 11 \quad \text{and} \quad \frac{1}{3} = 3 \frac{2}{3} - \frac{1}{3} = 1.22.
+    \]
+    
+    \item So really all strategies \textbf{except} $s_i = 1$ is weakly dominated, as this game will result in eliminating all other strategies towards one. We need to show that $s_i = 1$ is never a strictly dominating strategy.
+\end{itemize}
+
+Analysis: 
+
+\begin{itemize}
+    \item If:
+    \[
+    \frac{\sum_{i=1}^n s_i}{n} = \frac{\sum_{i=1}^{n-1} (1, 1, \dots, 1)}{n} = \frac{1}{3},
+    \]
+    then:
+    \[
+    \frac{1}{3}(1) = \frac{1}{3} = \text{minimum value possible.}
+    \]
+
+    \item If this is the case and $s_i = 1$, then:
+    \[
+    u_i(1, s_{-i}) - u_i(\hat{s_i}, s_{-i}) \geq 0.
+    \]
+    \[
+    u_i(1, 1) - u_i(\hat{s_i}, 1) \geq 0.
+    \]
+
+    \item Consider:
+    \begin{itemize}
+        \item If $\hat{s_i} > 1 \to$ payout = \$0.
+        \item If $\hat{s_i} \in [1, 100]$, then $\hat{s_i} < 1 \implies$ not possible    \end{itemize}
+        \item so $u_i(1,1) - u_i(\hat{s_i}, 1) \neq 0$ where 1 is the best choice remaining 
+        \item Payoff:
+        \[
+        u_i(1),1 \text{ has payoff of } \frac{100}{n},
+        \]
+        where $100/n < 100$, so it is \textbf{not strictly dominating.}
+\end{itemize}
+
+
+\begin{itemize}
+    \item Cannot \textbf{improve} from $s_i = 1$:
+    \[
+    \text{If } s_i > 1, \to \text{split reward (in case where all others choose 1).}
+    \]
+    \item However, if all others choose above 1, you will always get a payoff of zero.
+\end{itemize}
+
+\subsection{Part b}
+
+$\sigma_i$ that \textbf{strictly dominates} $s_i = 100$, where $s_i = 100$ is \textbf{weakly dominated}, as the:
+\[
+\text{Average } \frac{\sum s_i}{n} \approx 33 \frac{1}{3} \text{ at max.}
+\]
+
+\begin{itemize}
+    \item If all other players choose $100$, then you all split the payout.
+    \item So you need a mixed strategy where the payout is $>\frac{100}{n}$ in expected value.
+    \item You need a mixed strategy where $\sigma_i(100) = 0$, but $\sum \sigma_i(s_i)$ for $s_i \in [1, 99]$, so $100 \notin s_i = 1$.
+    \item \textbf{This mixed strategy}, applying non-zero probability to all values excluding $100$, should strictly dominate a pure strategy, $s_i = 100$. 
+\end{itemize}
+
+\subsection{Part c}
+Lets start with $s_i = 99$, where we know it is not strictly dominuated. Similarly, we can show this if $u_i(s_i'; s_{-i}) \geq u_i(s_i; s_{-i})$ where $s_i = 99$. With a \textbf{proof by contradiction:}
+
+\[
+u_i(s_i'; s_{-i}) > u_i(99, s_{-i}) \quad \text{where } s_{-i} = \{100, \dots, 100\}, \text{ for } i = 1, \dots, N \text{ players.}
+\]
+
+\[
+u_i(100, s_{-i}) > u_i(99, s_{-i}) \implies \mathbb{E}[u_i(100, s_{-i})] > \mathbb{E}[u_i(99, s_{-i})] \implies 100/N \ngtr 100.
+\]
+
+Here, $s_i = 99$ is \textbf{weakly dominant} against this set of \textbf{pure strategies}, $s_{-i} \in S_{-i}$, given the above inequality does not hold, it is a contradiction. 
+
+\begin{itemize}
+    \item If they play a set of mixed strategies, similar to part (b), where:
+    \[
+    \sigma_{-i}(s_{-i}) \text{ with } s_{-i} = 100 \notin S_{-i}, and s_i = 99, \text{ where }
+    \]
+    $s_i = 99$ is not strictly dominated but may be \textbf{weakly dominated}. This is because if they all play $99 \implies$ they split the earnings. In that case, $s_i = 99$ is not better than $s_i < 99$, but it holds that it is not strictly dominated because $s_i \geq (s_i = 99)$.
+    
+    \item So no strategy holds because:
+    \[
+    \sigma_i(100) > 0 \implies \mathbb{E}[99, s_i = 100] > \mathbb{E}[\sigma_i, s_i = 100].
+    \]
+    \[
+    \sigma_i(100) = 0 \implies \mathbb{E}[99, s_i = 100] = \mathbb{E}[\sigma_i, s_i = 100].
+    \]
+\end{itemize}
+
+\subsection{Part d}
+
+% Start at min/max and work towards the middle
+Start at min/max and work towards the middle? No. We want to keep \( s_i = 1 \) as a unique solution. Iterative dominance preserves each rationalizable strategy in a game where there is never a best response, where \( s_i = 1 \) is not a best response, but is also is not strictly dominated.
+
+\begin{itemize}
+    \item Start with \( s_i = 100 \), where \( u_i(100, s_{-i}) \leq u_i(99, s_{-i}) \) and \( u_i(100, s_{-i}) \leq u_i(\sigma_i(s_i), s_{-i}) \) for \( s_i \in S_i \) with \( s_i \neq 100 \). Assume \( s_i = 1, \dots, 99 \).
+    \item So player 1 chooses \( \sigma_i(100) = 0 \) probability, and all other players follow suit, meaning at the next round, \( s_i = 100 \) for all \( s_i \), \( s_i \) will be deleted as it is never a best response, strictly dominated strategy.
+    \item With iterative elimination, the next round says: 
+    \[
+    u_i(99, s_{-i}) < u_i(\sigma_i(s_i), s_{-i}),
+    \]
+    and 
+    \[
+    u_i(98, s_{-i}) < u_i(\sigma_i(s_i), s_{-i}),
+    \]
+    for all remaining \( s_i \in S_i \), \( s_i = 1, \dots, 98 \), such that \( s_i \neq 99 \).
+\end{itemize}
+
+\section{Problem 5}
+
+\subsection{Part a}
+% No NBR for P1, NBR for P2
+No never best response (NBR) for P1, no NBR for P2 either. 
+\begin{itemize}
+    \item P2 BR Correspondence:
+    \[
+    BR_2(U) = LL, \quad BR_2(D) = R
+    \]
+    \item P1 BR Correspondence:
+    \[
+    BR_1(LL) = U, \quad BR_1(M) = D, \quad BR_1(R) = D
+    \]
+\end{itemize}
+
+Given we cannot eliminate anything from the game, I would choose (LL) as my strategy, given the focality of the element, as its first in the game for Player 2 to decide. 
+
+\subsection{Part b}
+
+% TWO NASH (Requirement: BR Correspondences)
+There exists two Nash pure equilibrium strategies, which I find by using the best response correspondence.  These two Nash are $(D,R)$ and $(U,LL)$
+
+Now I also take a look to see if there are any mixed-strategy Nash equilibrium:
+    \begin{itemize}
+        \item with indifference between the two pure strategies, it is likely there is a mixed nash equilibrium where there is any probability that is positive  with either \( (D, R) \) or $(U,LL)$. 
+        \item If we know the probability and it skews from \( (1/2), (1/2) \), then one strategy may be mixed strategy Nash equilibrium.
+    \end{itemize}
+
+% Example P2
+An example: P2:
+\begin{itemize}
+    \item LL \( \to a = \text{probability} \)
+    \item L \( \to b = \text{probability} \)
+    \item M \( \to c = \text{probability} \)
+    \item R \( \to d = \text{probability} \)
+    \item Summation condition: \( a + b + c + d = 1 \).
+\end{itemize}
+
+\[
+LL \to a = 1 - b - c - d
+\]
+
+% Expected Payoff for P2
+Expected payoff for P2:
+\[
+D: u_i = (1 - b - c - d)(-100) + 100b + 1c + 100d
+\]
+
+% Equal Payoffs for D/L
+EQUAL PAYOFFS for \( D, U \) when:
+\[
+(1 - b - c - d)(-100) + 100b + 1c + 100d = c(1 - b - c - d)(100)
+\]
+
+Simplify:
+\[
+100b + 100d = 200b + 200d + c
+\]
+\[
+200b + 200d + c = 200 \quad \text{where } 400b + 400d + 199c = 200
+\]
+\[
+b + d + 398/200c = 1/2 
+\]
+
+% Payoff for P2
+Payoff for P2:
+\[
+\text{T} \to L, \quad (1 - T) \to D
+\]
+
+% Calculations for Payoff
+\[
+\text{So for } LL \to 2T - 100 + 100(1 - T) = 0 \quad \Rightarrow \quad 102T = 100 \quad \Rightarrow \quad T = \frac{100}{102}
+\]
+\[
+L \to T - 49 + 49(1 - T) = 0 \quad \Rightarrow \quad 50T = 49 \quad \Rightarrow \quad T = \frac{49}{50}
+\]
+\[
+M \to 0, \quad R \to T(-100) + 2C(1 - T) = 0 \quad \Rightarrow \quad 102T = 2 \quad \Rightarrow \quad T = \frac{2}{102}
+\]
+
+% Comparisons and Payoff Calculations
+The above were the math on some of the combinations, but below are the final results for the $BR(\sigma)$. Probabilities which give the best response functions are: 
+\begin{itemize}
+    \item LL $\rightarrow$ M = 50/51
+    \item L $\rightarrow$ M = 49/50
+    \item R $\rightarrow$ M = 1/51
+    \item LL $\rightarrow$ L = 51/52
+    \item R $\rightarrow$ L = 51/152
+    \item R $\rightarrow$ LL = 1/2
+    \item L = 49/50
+    \item LL = 100/102
+    \item M = 0
+    \item R = 1/51
+\end{itemize}
+
+From these best responses, you can see that only $(LL,L)$ with better probability than pure randomization. There are therefore three Nash equilibria. 
+
+\subsection{Part c}
+All strategies in (a) are rationalizable, by definition. Where rationalizable means these strategies remains viable for a player after iteratively eliminating strategies that are never a best response by the other players.  But, because players are indifferent, then it is not a part of the Nash equilibrium. 
+
+\subsection{Part d} 
+If we communicate beforehand, I would still play either $(D,R)$ or $(LL, U)$ which are dominant strategies. 
+
+\section{Problem 6}
+
+\subsection{Part a}
+\[
+\text{P1} \to BR_2(L) = \{U, L\}, \quad P2 \to BR_2(U) = L
+\]
+\[
+BR_2(R) = \{L, R\}, \quad BR_2(D) = \{L, R\}
+\]
+
+\textbf{Observations:}
+\begin{itemize}
+    \item For P1, $U$ weakly dominates.
+    \item For P2, $L$ weakly dominates.
+\end{itemize}
+
+Thus, the Nash equilibrium is $E = \{U, L, R\}$, where neither player weakly dominates the strategy.
+
+\subsection{Part b}
+\[
+\text{Pure strategy best responses:}
+\]
+\[
+P1 \to BR_1(L) = \{U, D\}, \quad BR_1(R) = \{U\}
+\]
+\[
+P2 \to BR_2(U) = \{L, R\}, \quad BR_2(D) = \{L\}
+\]
+
+\begin{itemize}
+    \item For Player 1, $D$ is weakly dominated.
+    \item For Player 2, $R$ is weakly dominated.
+    \item Nash equilibrium without weakly dominated strategy: $\{U, L\}$.
+\end{itemize}
+
+\textbf{Mixed Strategy Payoffs:}
+\[
+L = \pi, \quad R = (1 - \pi)
+\]
+\[
+U = P, \quad D = (1 - P)
+\]
+
+\textbf{Payoff for P1 using expected payoff:}
+\[
+\text{Payoff for P1 } = P\pi(1) + (1 - P)\pi(1) + P(1 - \pi)(0) + (1 - P)(1 - \pi)(-1)
+\]
+\[
+= P\pi + \pi - P\pi + P\pi - \pi P\pi - 1
+\]
+\[
+= 2\pi - P\pi + P - 1 =\implies P\pi
+\]
+
+\textbf{Payoff for P2 using expected payoff:}
+\[
+P\pi(1) + (1 - P)\pi(0) + P(1 - \pi)(1)
+\]
+
+\[
+= P\pi + P - P\pi + -1 + P + \pi - P\pi
+\]
+\[
+= 2P - 1 - \pi - P\pi =\implies P\pi
+\]
+
+\textbf{Final Result:}
+So for the mixed strategy equilibrium, the best solution is the same probability as found in the pure strategy, so we now have only the Pure Strategy Nash Equilibrium $\{ U, L\}$,  $\{ D, R\}$. Also, only $\{ U, L\}$ is not weakly dominated, as the payoff is always better.
+
+\section{Problem 7}
+Game set up: 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c}
+    & S & R \\ \hline
+S   & 9, 9 & 0, 8 \\
+R   & 8, 0 & 7, 7 \\
+\end{tabular}
+\end{table}
+
+\textbf{Observations:} There are no strictly dominated strategies for either P1 or P2. 
+
+\textbf{Best Response Correspondences:}
+\[
+BR_1(S) = S, \quad BR_1(R) = R, \quad BR_2(S) = S, \quad BR_2(R) = R
+\]
+
+\textbf{Nash Equilibria:}
+\[
+\{S, S\}, \quad \{R, R\}
+\]
+
+\textbf{Mixed Strategy Analysis:}
+\[
+\text{P1 chooses: } S \to p, \quad R \to (1 - p)
+\]
+\[
+\text{P2 chooses: } S \to q, \quad R \to (1 - q)
+\]
+
+\textbf{Expected Payoff for Player 1:}
+\[
+9p q + 8(1 - p)q + 0(p(1 - q)) + 7(1 - p)(1 - q)
+\]
+\[
+= 9pq + 8q - 8pq + 7 - 7q - 7p + 7pq
+\]
+\[
+= 16pq - 8pq - 15q + 7 - 7p + 7pq
+\]
+\[
+= 8pq - 15q - 7p + 7
+\]
+
+\noindent \textbf{Mixed Strategy Equilibrium:}
+If either $p > 1/2$ or $q > 1/2$, then you have \textbf{one Nash equilibrium.}
+\\
+\noindent  \textbf{Conclusion:} I choose $\{S, S\}$ because it is a stag hunt. So I assume, based on multual understanding, it is rational for both players to want to go on a stag hunt, as its the intended purpose of the trip. 
+
+\section{Problem 8}
+
+Game table: 
+\[
+\begin{array}{c|cc}
+\text{Goalie} & \text{Kicker \( L \)} & \text{Kicker \( R \)} \\ \hline
+L & (\alpha, 1 - \alpha) & (0, 1) \\
+R & (0, 1) & (\beta, 1 - \beta) \\
+\end{array}
+\]
+
+\subsection{Part a}
+\begin{enumerate}
+    \item I would assume the kicker will still score more when he kicks left, because his skill is represented by \( \alpha \) (for kicking left) and \( \beta \) (for kicking right), and \( \alpha < \beta \). The lower \( \alpha \) implies a higher chance of scoring when the kicker chooses \( L \).
+
+    \item  If \( \alpha \) decreases, we see that the kicker will have an increased probability of kicking and scoring, as \( \alpha \) going down implies the goalie stops left kicks less frequently. But, \( \alpha \) and \( \beta \) are independent, so NO - the probability of kicking right is not affected, as \( \alpha \) doesn't appear in that probability function. 
+\end{enumerate}
+
+\subsection{Part b}
+The Nash equilibrium involves mixed strategies where both the striker and the goalie randomize between left and right. 
+\begin{itemize}
+    \item \( p \) = probability striker chooses L
+    \item \( q \) = probability goalie chooses L
+\end{itemize}
+With expected payoffs:
+\begin{enumerate}
+    \item For striker: \[
+    EU = pq(1 - \alpha) + (1 - p)q(1) + p(1 - q)(1) + (1 - p)(1 - q)(1 - \beta)
+    \]
+    \[
+    = pq - pq\alpha + q -pq + p - pq + (1-\beta)(1 - p - q + pq)
+    \]
+    \[
+    = - pq\alpha + 1 - p\beta + q\beta - pq\beta
+    \]
+    Now take the first derivative with respect to striker's probability, $p$: \[
+    \frac{dEU}{dp} =  q\alpha - \beta - q\beta \implies p^* = \frac{1 - \beta}{2 - (\alpha + \beta)}
+    \]
+    \item For goalie: \[
+    EU = pq\alpha + (1-p)q\cdot 0 + p(1-q)\beta + (1-p)(1-q)\cdot 0
+    \]
+    \[
+    =pq\alpha + \beta - q\beta -p\beta + pq\beta
+    \]
+    Now take the first derivative with respect to goalies's probability, $q$: \[
+    \frac{dEU}{dq} = p(\alpha) - p\beta \implies q^* = \frac{1 - \beta}{2 - (\alpha + \beta)}
+    \] 
+\end{enumerate}
+\[
+p^* = \frac{1 - \beta}{2 - (\alpha + \beta)}, \quad q^* = \frac{1 - \alpha}{2 - (\alpha + \beta)}.
+\]
+
+Because the probabilities are the same, the nash equilibrium is therefore \{$q^*, p^*$\}
+
+\subsection{Part c}
+Because the probabilities found above are the same, we can assume the probability of scoring both left and right are the same, and that should become apparent when you watch the kicker. So the fraction of times he scores, while its random - given its a probability - should be the same across both left and right. 
+
+\subsection{Part d}
+If you know the fraction of times a kicker scored on a goalie, even when they both go left (and right) will show you the scoring ability of the player. This is because we are given that the probability of a score is $1-\alpha$, as $\alpha$ is the probability of blocking by the goalie. Similarly, the scoring ability for the player when both go right is $1-\beta$. If you only watch the player kick a few times, lets say 10 times, you may not get a large enough sample to deduce the actual fraction. But over time, you should be able to get his scoring ability. 
+
+\subsection{Part e}
+Absolute ability would require knowing all the absolute scores in each combination of the game. Because we do not know that, we can only see the relative ability, the amount of goals for \{L,L\} and \{R,R\}. 
+
+\subsection{Part f}
+No, because the probability of the goalie going left was found, as $\beta/(\alpha + \beta)$. So we cannot solve for two unknowns here. Absolute ability is still unknown. 
+
+\section{Problem 9}
+
+Game set up:
+\begin{table}[H]
+\centering
+Firm 1 plays purification: 
+\begin{tabular}{c|c|c}
+    & F3: P & F3: D \\ \hline
+F2: P   & -1,-1, -1 & -1, -1, 0 \\
+F2: D   & -1, 0, -1 & -4, -3, -3\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+Firm 1 plays dump: 
+\begin{tabular}{c|c|c}
+    & F3: P & F3: D \\ \hline
+F2: P   & 0,-1,-1& -3,-4,-3 \\
+F2: D   & -3,-3,-4 & -3, -3, -3\\
+\end{tabular}
+\end{table}
+
+With payouts: 
+\[
+\quad
+\begin{array}{c|c}
+P, P, P = -1, -1, -1 & D, P, P = 0, -1, -1 \\
+P, P, D = -1, -1, 0  & D, P, D = -3, -4, -3 \\
+P, D, P = -1, 0, -1  & D, D, P = -3, -3, -4 \\
+P, D, D = -4, -3, -3 & D, D, D = -3, -3, -3 \\
+\end{array}
+\]
+
+Just by looking at the game, there is no pure strategy nash equilibrium. There may be a mixed strategy nash equilibrium, which we can look at to identify if there are any choices where unilateral deviation does not improve individuals' outcome. For example, $[P,P,P]$ is not a nash equilibrium, because each player is incentivized to deviate unilaterally to improve their outcome (assuming they are the only one who deviates). 
+
+\[
+[P,P,D] \text{ cannot improve because if one firm deviates, the payouts are worse for everyone}
+\]
+\[
+[D,D,D] \text{ cannot improve because if one firm deviates, the payouts are worse for themselves}
+\]
+
+So the Nash equilibrium are $[D,D,D], [P,P,D], [P,D,P],$ and $[D, P, P]$ as order doesn't matter for the mixed responses (i.e. any two firms can purify). 
+
+
+\section{Problem 10}
+
+\subsection{Part a}
+\[
+(1 - \pi) = \text{distance to the ice cream from the start of the boardwalk.}
+\]
+
+\[
+\text{Co-locate vs. Move (Payoff Matrix):}
+\]
+
+\[
+\begin{array}{c|c|c}
+& \text{Co-locate} & \text{Move} \\
+\hline
+\text{Co-locate} & \frac{\pi}{2}, \frac{\pi}{2} & 0, \pi \\
+\text{Move} & \pi, 0 & \frac{\pi}{2}, \frac{\pi}{2}
+\end{array}
+\]
+With potential options for co-locate, move, respectively for each player: 
+\[
+P_2 = \{ \pi, (1-\alpha)\pi \}, \{ \pi/2, 0 \}, \quad P_1 = \{ \pi, \alpha \pi \}, \{ \pi/2, 0 \}
+\]
+
+\[
+\mathbb{E}_1 \left[ \frac{\pi}{2}(p) + 0(1-p) \right] > \mathbb{E}_1 \left[ \pi(p) + \alpha \pi (1-p) \right]
+\]
+
+\[
+\mathbb{E}_2 \left[ \frac{\pi}{2}(q) + 0(1-q) \right] > \mathbb{E}_2 \left[ \pi(q) + (1-\alpha) \pi (1-q) \right]
+\]
+ Where $\alpha =$ some \% of earnings depending on distance, which is likely unknown and decreasing in  Q,  as distance affects consumer's likelihood of purchasing from that vendor (i.e. vendors need to capture the most customers, so they need to minimize the distance to them). 
+
+\subsection{Part b}
+In this set-up, there can be no nash equilibrium for the three players, because one vendor will always be able to unilaterally deviate and get more customers by moving away from each other, although the number of customers is a function of the distance along the boardwalk. Therefore, it is not in the vendor's best interest to leave the co-location, as the vendors can then ensure they are equally distanced, in the middle, of the boardwalk to capture the most customers. So, it is always best for the vendors to co-locate, but with a third vendor, profits are reduced as they share, so there will still exist an incentive to move and try to gain 'more of the boardwalk'. Therefore, with three vendors, there is no nash. 
+
+\end{document}
