@@ -5,8 +5,7 @@
 ***
 ### Purpose
 These notes provide a concise yet comprehensive overview of key material covered in the first-year PhD microeconomics sequence at UCSC. Notes are adapted
-from both lectures held at UCSC during the 2024-25 term, and include all topics covered in the first year microeconomics sequence.  
-They include theorems, definitions, proofs, explanations, examples, and problem sets to aid understanding and application.
+from both lectures held at UCSC during the 2024-25 term, and include all topics covered in the first year microeconomics sequence. They include theorems, definitions, proofs, explanations, examples, and problem sets to aid understanding and application.
 
 ### Textbooks
 (1) Andreu Mas-Colell, Michael D. Whinston, and Jerry R. Green - Microeconomic Theory
