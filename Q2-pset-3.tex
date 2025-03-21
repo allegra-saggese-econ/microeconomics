@@ -1,0 +1,262 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{fancyhdr} % For custom headers and footers
+\usepackage{geometry} % For page layout
+\geometry{a4paper, margin=1in}
+
+\pagestyle{fancy} % Activate the fancyhdr package
+\fancyhf{} % Clear all header and footer fields
+
+\fancyhead[R]{\textbf{Saggese \thepage}} % Right-aligned text
+
+% Optional: Header rule customization
+\renewcommand{\headrulewidth}{0.4pt} % Width of the header line
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1in} % Vertical space at the top
+    {\Large Problem Set 3} \\[1.5cm] % Subtitle
+
+
+    {\Large \textbf{Allegra Saggese}} \\[0.5cm] % Author name
+    {\large Microeconomics 204B} \\[1.5cm]
+
+    {\large Friday, March 21 2025} % Display today's date
+    \\[2cm] % Space before additional text
+
+\end{titlepage}
+
+\section{Problem 1}
+\subsection*{(a)}
+
+\begin{itemize}
+    \item The best response function when $v \in (c+2t, c+3t)$ can be found by solving the FOCs of the KKT
+    \item recall $M = v - (p_j + td)$
+    \item Firm 1's demand function is $(p-c)q = M \hat{z}$, so $ \implies (p-c)q = v - (p_j + td)$
+    \item $M \hat{z} = v - p_j + td$ for all $j = 1, 2$
+    \item so we start by looking at the cost of buying, and solving for z: 
+    \[
+    p_1 + tz < p_2 + t(1-z) 
+    \]
+    \[
+    tz < (p_2 + t - tz - p_1) / 2t
+    \]
+    \[
+    2tz > (p_2 + 2 - p_1)
+    \]
+    \[
+    z = (p_2 + t - p_1)/2t
+    \]
+    At $z$, the consumer is indifferent between which firm to buy from either firm because they're equal distance. Below we generalize from 1,2 to $i,j$:
+\end{itemize}
+
+
+\[
+\max_{p_j} (p_j - c) \cdot (\overline{p}_{-j} +  p_j) \cdot (M/2t)
+\]
+
+taking the first order condition: 
+
+\[
+(t + p_{-j} + c - 2p)(M/2t)
+\]
+
+where, from the first order condition we get the following conditional equalities: 
+\[
+\left\{
+  \begin{array}{ll}
+    \leq 0 & \text{if } p_j = \overline{p}_{j} - t\\
+    = 0 & \text{if } p_j \in [\overline{p}_{-j} - t, \overline{p}_{-j} +t]\\
+    \geq 0 & \text{if } p_j = \overline{p}_{j} + t
+    \end{array}
+\right.
+\]
+
+\begin{itemize}
+    \item given that $p_{-j} = c + 3t$, then $t + \overline{p}_{-j} + c - 2p_j \leq 0$
+    \item when $\overline{p}_{-j} \in [c - t, c+3t]$ then $ t + \overline{p}_{-j} + c - 2p_j \geq 0$
+\end{itemize}
+
+Best response functions are the following:
+
+\[
+\left\{
+  \begin{array}{ll}
+    p_{-j} + t & \text{if } \overline{p}_{j} \leq c - t\\
+    (1/2)(\overline{p}_j + c) & \text{if } p_j \in [c-t, c+3t]\\
+    \overline{p}_j + t & \text{if } \overline{p}_j \geq c + 3t
+    \end{array}
+\right.
+\]
+
+
+\subsection*{(b)}
+Now firms max profit, where $x$ is the inverse demand, such that: 
+\[
+\max_{p_i} (p_i - c) \cdot x_i(p_i, p_j^*) = (p_i - c) \cdot \frac{t + p_j^* - p_i}{2t} M
+\]
+
+and for $v \in (c + t, (3/2)t)$ then $ v > c + t + (1/2)t = v > c + (3/2)t$ so in equilibrium it holds. Here the unique nash equilibrium is $p_i = p_j = c + t $
+
+\subsection*{(c)}
+from above 
+\[
+v - p_i - t\, z_i = 0 \quad \Longrightarrow \quad z_i = \frac{v - p_1}{t}.
+\]
+If $0 \le z_1 \le 1$, then consumers on $[0, z_1]$ buy from firm 1. The same holds with symmetry for firm 2. Firms are competing for the middle of the market, often, and try to max their own profit. 
+\\
+If both firms $i, j$ chooses $p_i, p_j$ to maximize profits, then:
+\[
+\pi_i = (p_i - c)q = v - (p + tz_i) 
+\]
+
+so, rearranging gives us: $z_i = \tfrac{v - p_i}{t}$ (assuming $0 \le z_i \le 1$) and profits are equivalent to:
+  \[
+  \pi_i = (p_i - c)\,z_i = (p_i - c)\,\frac{v - p_i}{t}.
+  \]
+
+The same is true for firm 2 because of symmetry so I won't repeat the functions. Then, we rearrange and take the profit, and differentiate to get the FOC for the optimal price for the firm: 
+\[
+\pi_i = \frac{1}{t}\,\bigl[(p_i - c)(v - p_i)\bigr].
+\]
+\[
+\frac{d\pi_i}{dp_i} = \frac{1}{t}\bigl[v - 2p_i + c\bigr] = 0
+\quad\Longrightarrow\quad p_i^* = \frac{v + c}{2}.
+\]
+
+
+Where the same holds for the other firm, where $p_i^* = \frac{v + c}{2}$. So, in equilibrium:
+\[
+(\frac{v +c}{2}, \frac{v + c}{2}) = (p_i^*, p_j^*)
+\]
+
+With the initial constraint: $v < c + t \implies$ some consumers will not buy because there would be negative utility if they are too far from either firm, such that their value is less than their utility less their cost. 
+
+\[
+z_i = \frac{v - p_i^*}{t} = \frac{v - \frac{v + c}{2}}{t} = \frac{v - c}{2t}, 
+\quad
+z_j = 1 - \frac{v - p_j^*}{t} = 1 - \frac{v - \frac{v + c}{2}}{t} = 1 - \frac{v - c}{2t}.
+\]
+Since $v < c + t$, we have $v - c < t$, so
+\[
+\frac{v - c}{2t} < \frac{t}{2t} = \frac{1}{2},
+\]
+
+\[
+z_1 < \frac{1}{2} < z_2.
+\]
+
+Only consumers that are in the distance of $[0, z_i]$ buy from firm 1 and similarly those who are on the interval $[z_j, 1]$ buy from firm 2 - there is an area of no market reach. 
+
+\subsection*{(d)}
+
+When $v \in (c + t, c + (3/2)t)$ there exists a unique equilibrium such that $p_1 = p_2 = v - t /2$ in equilibrium. This occurs when $ v > c + t$, which we will compare to the above case where $ v < c + t$. Recall that if $v$ is greater than cost and transportation, then consumers are willing to buy. If this holds for all consumers, then firms will set the distance equivalent to each other and share the profits. This is one potential way to play the game, and results in equilibrium output where $p_1^* = p_2^* = v - t /2$.
+\\
+We can show this by taking the FOC of the profit maximizing function, and rearranging for $v$:
+
+\[
+\frac{d(p_i - c)x_i(p_i, p_j)}{dp_i} = \frac{d(p_i - c)(v-p_i)\cdot(M/t)}{dp_i} = (t + p_j + c)(M/2t) \geq 0
+\]
+
+If you rearrange, and plug back in for $v$ we get: $p_i&* = v - t /2 $. In addition to this equilibrium, which is symmetric for both $i,j$, there is an asymmetric equilibrium in this case, because firms can deviate by a small amount, $\epsilon$ in order to capture customers from the other firm. This is because there are multiple equilibria possible in this Bertrand price competition, and its also why firms can only \textit{lower} prices and cannot raise them, or they risk losing customers all together where costs exceed the value from the product. 
+
+
+\subsection*{(d)}
+
+As travel costs decrease, more consumers will enter the market, or may change where they buy something (i.e. which firm they buy from). Therefore, firms can increase price (cost for consumers) and raise prices slightly. Overall, profits should stay above competitive prices for each firm. 
+
+\section{Problem 2}
+\subsection*{(a)}
+For a change of cost in production, we see that $\delta \geq 1/2 \implies p \in [c, p^m]$ is a subgame perfect nash equilibrium. If costs change, $p \in [c, p^m] \rightarrow p \in [c', p^m]$. 
+
+\begin{itemize}
+    \item Where $c' > c$ the profitable strategies decrease in numbers (quantity)
+    \item $c' < c$ the number of profitable strategies rise
+\end{itemize}
+\\
+The lowest price possible to ensure that profits remain positive will change and the monopoly's price, $p^m$ will increase. But, the most profitable price (cost) is the upper bound, so it does change where $\delta \geq 1/2$, so $p^m$ shifts up by the change in cost. Overall profits will decrease if firms are not already selling at $c$. 
+
+\subsection*{(b)}
+If there is a permanent change in period 2, we need to look at the profits, assuming there are two firms. If profits of firm 1 are greater than 1/2 of the profits of firm 2 ($\pi_1 > \pi_2/2$), then firm 1 could deviate in $t=1$ to take all the profits, then take in zero profits for the future periods. This is profitable where the deviation is greater than the summation of NPV payoffs in the future. 
+\\
+\\
+If $\pi_1 \approx \pi_2/2$ the change in cost will only lead them to cooperate. 
+
+\section{Problem 3}
+
+\subsection*{(a)}
+
+$\lambda \in (0,1)$ \\
+$\lambda \rightarrow x(p) \rightarrow p_h$ \\
+$(1-\lambda) \rightarrow \alpha x(p) \rightarrow p_l$ \\
+\\
+When $\delta$ is sufficiently high, then $p_h = p_l = p^m$ \\
+The monopoly price is sustained \textit{if and only if} the present value of future losses is large enough, relative to the possible current gain from deviation. The losses would be foregone earnings achieved by undercutting the rival firms. \\
+\\
+Firms collect $1/2 \cdot \pi_i$ if $p_h = p_l = p^m$ in equilibrium, so:
+\[
+\text{Expected value }= \beta[(1-\lambda)\pi_l + \lambda \pi_h] \div 2
+\]
+\[
+\text{where } \beta = \frac{\delta}{1-\delta} \text{ because } \delta^i = \delta^1 + \delta^2 + \delta^3...
+\]
+So in the high cost (and also low-cost scenario), firms deviate, where: 
+\[
+\pi_h/2 = \beta[(1-\lambda)\pi_l + \lambda \pi_h]/2
+\]
+\\
+In equilibrium, we can take the firm's profit maximization, and plug in the the profit margin, where $p^m - c$ is equal to the price. We look first at solving for the demand for high demand firms.
+\[
+[p_l\cdot \alpha x(p_l) - \lambda(p_l\cdot \alpha x(p_l)] = \pi_l \implies (p^m - c)\alpha x(p_l) - \lambda(p^m -c)\alpha x(p_l) = \pi_l
+\]
+\[
+(p^m -c)\alpha x(p^m) = \alpha \pi_l
+\]
+so expected value is: 
+\[
+\beta[(1-\lambda)\alpha - \lambda] = \pi = (1-\delta)
+\]
+\[
+\pi/\pi = (\delta/(1-\delta))(\lambda + (1-\lambda)\alpha) = 1
+\]
+Now, for low demand firms, we get a similar result:
+\[
+\alpha = (\delta/(1-\delta))(\lambda + (1-\lambda)\alpha)
+\]
+Which keeps firms from cooperating. If we want to find the correct value of $\delta$, then we need to solve for delta from these equations: 
+\[
+(1-\delta) = \delta\lambda + (1-\lambda)\alpha\delta
+\]
+\[
+-\delta = \delta\lambda +\alpha\delta - \lambda\alpha\delta - 1
+\]
+\[
+\delta \geq 1/(1 + \lambda + (1-\lambda)\alpha)
+\]
+So when $\delta \geq 1/(1 + \lambda + (1-\lambda)\alpha)$, where $\alpha \in [0,1]$ then $p_l = p_h = p^m$. We need $\delta \geq (1/2)$ for this to hold. 
+
+\subsection*{(b)}
+
+For sustainable prices in both periods, we solve out for the value of delta, such that it is $\delta = 1/(1 + \lambda + (1-\lambda)\alpha)$. But, if $\pi_{h,t-1} > [\delta/(1-\delta)][\pi_{h,t}/2]$ then a firm will deviate. When $\delta < \underline{\delta}$, where $\underline{\delta}$ is the minimum value of the discount rate needed to sustain monopoly pricing, we will calculate the profits: 
+\[
+\pi_h = \beta[px(p)-c]
+\]
+\[
+(\pi_h - \delta\pi_h) = \delta(px(p)-c) \implies \pi_h = \delta[(p\cdot x(p) - c + \pi)]
+\]
+\[
+\pi_h \geq \frac{(1-\lambda\cdot\pi_l)}{(1-\delta)} \implies \delta \leq \frac{(1-\lambda)\pi_l - \pi_h}{(1-\lambda)\pi_l}
+\]
+So if it is more profitable to deviate in the high demand state, then price in low demand stays at monopoly pricing, while the price in a high demand state will drop. 
+
+\section{Problem 4}
+\subsection*{(a)}
+
+\end{document}

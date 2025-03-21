@@ -4,6 +4,8 @@
 \usepackage{caption}
 \usepackage{amssymb}
 \usepackage{array} % for tables
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
 \usepackage{amsfonts}
 \usepackage{tabularx}
 \usepackage{geometry} % for tables and graphs 
@@ -201,7 +203,7 @@ Normal form games (NFG) are condensed versions of a game. The expression for the
 \end{itemize}
 
 \subsubsection{Extended form games}
-Extended (or extensive) form games are important for depicting games where the rules differ than purely static, simultaneous move games. For example, EFGs can capture dynamic games (see \ref{DG}), where the order that players move is unique, and the information available to them is not always perfect. EFGs are often depicted by game trees.\\
+Extended (or extensive) form games (EFG) are important for depicting games where the rules differ than purely static, simultaneous move games. For example, EFGs can capture dynamic games (see \ref{DG}), where the order that players move is unique, and the information available to them is not always perfect. EFGs are often depicted by game trees.\\
 
 \noindent Formal representation of an extended form game (EFG) is: \[
 \Gamma_E = \{H, A, I, \rho(\cdot), \alpha(\cdot),\mathcal{H}, H(\cdot), \iota(\cdot), p(\cdot), u \}
@@ -319,7 +321,7 @@ Extended (or extensive) form games are important for depicting games where the r
 \end{center}
 
 \begin{center}
-\begin{tikzpicture}[scale=1.2, transform shape]
+\begin{tikzpicture}[scale=1.2, transform shape, every node/.style={scale=0.6}]
     % Firm A's decision node
     \node[draw, circle] (A) at (0,0) {Firm A};
     
@@ -424,6 +426,25 @@ u_i(\sigma_i, s_{-i}) > u_i(s'_i, s_{-i}).
 \end{itemize} \\
 
 In words, a \textit{1-rationalizable strategy} is one that can be a best response to any belief about what others might play, assuming they are rational. A \textit{k-rationalizable strategy} is optimal when players expect others to choose from their \( (k-1) \)-rationalizable strategies. Ultimately, a \textit{rationalizable strategy} is one that remains optimal no matter how many rounds of reasoning are applied, i.e., it is consistently a best response to rational expectations of others' rational behavior. \\ 
+
+\noindent \textbf{Sequential rationality:} \\
+\\
+\textbf{Definition - System of Beliefs:} \\
+A system of beliefs $\mu$ in an extensive form game $\Gamma_E$ is a specification of a probability $\mu(x) \in [0,1]$ for each decision node $x$ in $\Gamma_E$ such that:
+\[
+\sum_{x\in H} \mu(x) = 1
+\]
+for all information sets $H$.
+\\
+\\
+\textbf{Definition - Sequential Rationality of Strategies:} \\
+Consider an extensive form game $\Gamma_E$, an information set $H$, the player who moves there, $i$, and $i$'s system of beliefs $\mu$. A strategy profile $\sigma = (\sigma_1, ..., \sigma_I)$ in $\Gamma_E$ is sequentially rational at $H$ given $\mu$ if:
+\[
+E [u_i | H, \mu, \sigma_i , \sigma_{-i} ] \geq E [u_i | H, \mu, \tilde{\sigma}_i , \sigma_{-i} ]
+\]
+for all $\tilde{\sigma}_i \in \Delta(S_i)$.
+
+
 
 \subsubsection{Iterated dominance}\label{ISD}
 
@@ -671,6 +692,57 @@ The support for each player \( i \) is the set of actions \( s_i \in C_i \) for 
 
 \subsection{Bayesian nash equilibrium concepts}\label{WPBNE}
 
+\textbf{Bayesian Nash Equilibrium}: a strategy profile \(\{s_i(\theta_i)\}\) such that each player maximizes their expected utility given their beliefs about the types of other players:
+\[
+E[u_i(s_i(\theta_i), s_{-i}(\theta_{-i}) | \theta_i] \geq E[u_i(s_i', s_{-i}(\theta_{-i}) | \theta_i], \quad \forall s_i' \in S_i, \quad \forall \theta_i \in \Theta_i.
+\]
+
+
+\textbf{Definition: Weak Perfect Bayesian Equilibrium (WPBE)} \\
+A profile of strategies and system of beliefs $(\sigma, \mu)$ is a weak perfect Bayesian equilibrium (WPBE) in an extensive form game $\Gamma_E$ if:
+\begin{itemize}
+    \item[(i)] The strategy profile $\sigma$ is sequentially rational given belief system $\mu$.
+    \item[(ii)] The system of beliefs $\mu$ is derived from strategy profile $\sigma$ through Bayes’ rule whenever possible:
+    \[
+    \mu(x) = \frac{\Pr [x | \sigma]}{\Pr [H | \sigma]}, \quad \forall x \in H.
+    \]
+\end{itemize}
+\\
+\\
+\textbf{Definition: Sequential Equilibrium} \\
+A strategy profile and system of beliefs $(\sigma, \mu)$ is a sequential equilibrium of an extensive form game $\Gamma_E$ if:
+\begin{enumerate}
+    \item The strategy profile $\sigma$ is sequentially rational given belief system $\mu$.
+    \item There exist:
+    \begin{itemize}
+        \item A sequence of completely mixed strategies converging to $\sigma$, $\{\sigma_k\}_{k=1}^{\infty} \to \sigma$.
+        \item A sequence of belief systems converging to $\mu$, $\{\mu_k\}_{k=1}^{\infty} \to \mu$.
+        \item Each belief system $\mu_k$ is derived from strategy profile $\sigma_k$ using Bayes’ rule.
+    \end{itemize}
+\end{enumerate} 
+\\
+\\
+\textbf{Proposition: Relationship between WPBE and Nash Equilibrium} $\Rightarrow$ A strategy profile $\sigma$ is a Nash equilibrium of an extensive form game $\Gamma_E$ if and only if there exists a system of beliefs $\mu$ such that:
+\begin{enumerate}
+    \item Strategy profile $\sigma$ is sequentially rational given $\mu$ at all info sets $H$ such that $\Pr [H | \sigma] > 0$.
+    \item The system of beliefs $\mu$ is derived from $\sigma$ through Bayes’ rule whenever possible.
+\end{enumerate}
+Every WPBE is a Nash equilibrium, but not all Nash equilibria are WPBE.
+
+
+\subsection{Asymmetric information}
+
+\subsubsection{Adverse selection (in the labor market)}
+
+\subsubsection{Signalling (in the labor market)}
+
+\textbf{Lemma: Separating Equilibria in Signaling Games}: In any \textbf{separating Perfect Bayesian Equilibrium (PBE)}, the equilibrium wages satisfy:
+\[
+w^*(e^*(\theta_H)) = \theta_H, \quad w^*(e^*(\theta_L)) = \theta_L.
+\]
+That is, each worker type receives a wage equal to her productivity level.
+
+
 
 
 %------------------OLIGOPOLIES- SEC 6 %---------------------%
@@ -678,7 +750,42 @@ The support for each player \( i \) is the set of actions \( s_i \in C_i \) for 
 
 \subsection{Bertrand Competition}
 
+\textbf{Propositions:}
+\begin{itemize}
+    \item \textbf{Subgame Perfect Nash Equilibrium in Bertrand Duopoly}: The strategies described for price-setting in Bertrand duopoly constitute a \textbf{subgame perfect Nash equilibrium (SPNE)} if and only if $\delta \geq 1/2$.
+    
+    \item \textbf{SPNE in Infinitely Repeated Bertrand Duopoly}: In an infinitely repeated \textbf{Bertrand duopoly game}, when $\delta \geq 1/2$, repeated choice of any price $p \in [c, p_m]$ can be supported as an \textbf{SPNE outcome path} using Nash reversion strategies.
+
+\end{itemize}
+
+
+
+
 \subsection{Cornout Competition}
+
+\subsection{Repeated Games}
+
+\textbf{Definition: Nash Reversion Strategy in Repeated Games} \\
+A strategy profile $s = (s_1, ..., s_I)$ in an infinitely repeated game is one of \textbf{Nash reversion} if each player’s strategy calls for playing some outcome path $Q$ until someone defects and playing the stage game \textbf{Nash equilibrium} $q^* = (q^*_1, ..., q^*_I)$ thereafter.
+\\
+
+\textbf{Propositions:}
+\begin{itemize}
+    \item \textbf{Folk Theorem for Repeated Games}: In an infinitely repeated game, any feasible discounted payoffs that give each player, on a per-period basis, more than the lowest payoff that they could guarantee in a \textbf{single-play simultaneous-move component game}, can be sustained as the payoffs of an \textbf{SPNE} if players discount the future sufficiently.
+
+    \item \textbf{Sustaining Cooperation in Repeated Games}: If there is potential for joint improvement in payoffs near the stage game \textbf{Nash equilibrium}, then for sufficiently high $\delta$, there exists a \textbf{subgame perfect equilibrium (SPNE)} where payoffs exceed those in the static \textbf{Nash equilibrium}. 
+    
+    \item \textbf{Credible Punishment in Repeated Games}: If each player’s stage game Nash equilibrium payoff strictly exceeds their minimax payoff, then there exists an SPNE with more severe punishments than Nash reversion 
+\end{itemize}
+\\
+
+\textbf{Lemma 1: Nash Reversion Strategies and SPNE}: A Nash reversion strategy profile that calls for playing outcome path $Q = \{q_{1t} , ..., q_{It}\}_{t=1}^{\infty}$ prior to any deviation is an \textbf{SPNE} if and only if:
+\[
+\hat{\pi}_i(q_{-it}) + \frac{d}{1 - d} \pi_i(q^*) \leq v_i(Q, t), \quad \forall t, i
+\]
+where $\hat{\pi}_i(\cdot)$ denotes player $i$’s payoff from deviating and $q^*$ is the stage game Nash equilibrium.
+
+
 
 %------------------APPENDIX %---------------------%
 
@@ -819,6 +926,29 @@ $\Gamma_E = \big[I, T, P, \{S_i\}, \{u_i(\cdot)\}\big]$ & \begin{itemize}
 \end{tabular}
 \caption{Comparison of Mixed and Pure Games in EFG and NFG}
 \label{tab:games_table}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|p{3.5cm}|p{2.1cm}|p{4.1cm}|p{5.7cm}|}
+\hline
+\textbf{Concept} & \textbf{Type} & \textbf{Game Type} & \textbf{Short Description} \\ \hline
+\textbf{Rationality} & Condition & Perfect, Imperfect, Adverse Selection, Signaling, Repeated & Players choose strategies maximizing expected payoffs given beliefs. \\ \hline
+\textbf{Nash Equilibrium (NE)} & Equilibrium Concept & Perfect, Imperfect, Adverse Selection, Signaling, Repeated & No player can gain by unilaterally deviating from equilibrium strategies. \\ \hline
+\textbf{Bayesian Nash Equilibrium (BNE)} & Equilibrium Concept & Imperfect info, Adverse Selection, Signaling & NE for incomplete information; strategies maximize expected payoffs given beliefs about others' types. \\ \hline
+\textbf{Subgame Perfect Nash Equilibrium (SPNE)} & Equilibrium Refinement & Perfect info (clearly defined subgames), Repeated & NE refinement requiring equilibrium within every subgame (no non-credible threats). In repeated games, credible equilibrium strategies specifying optimal actions after every possible history, often using punishment. \\ \hline
+\textbf{Weak Perfect Bayesian Equilibrium (Weak PBE)} & Equilibrium Refinement & Imperfect info, Signaling, Adverse Selection & Equilibrium requiring sequential rationality and weak consistency of beliefs (Bayesian updating where possible). \\ \hline
+\textbf{Nash Reversion Strategies} & Strategy/ Punishment Method & Repeated Games & Punishment reverting permanently to stage-game NE after deviation; sustains cooperation. \\ \hline
+\textbf{Sequential Rationality} & Condition & Perfect, Imperfect, Signaling, Adverse Selection, Repeated & Requires optimal actions at every decision point given beliefs. \\ \hline
+\textbf{Backward Induction} & Method & Perfect info, Finite Repeated Games & Solves perfect-info dynamic games backward from end to beginning, finds SPNE. \\ \hline
+\textbf{Generalized Backward Induction} & Method & Imperfect info, Signaling, Adverse Selection, Repeated & Extends backward induction with explicit beliefs for imperfect-info games; finds PBE. \\ \hline
+\textbf{Pareto Dominance} & Equilibrium Criterion & Perfect, Imperfect, Signaling, Repeated & Outcome where no player can be better off without making another worse off; selects among multiple equilibria. \\ \hline
+\end{tabular}
+\caption{Summary of key concepts on equilibrium, strategies and refinements in game theory.}
+\label{tab:game_theory_summary}
 \end{table}
 
 
