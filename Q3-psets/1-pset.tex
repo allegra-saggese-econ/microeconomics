@@ -1,0 +1,266 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{fancyhdr} % For custom headers and footers
+\usepackage{geometry} % For page layout
+\geometry{a4paper, margin=1in}
+\usepackage{parskip}
+\usepackage{comment}
+\pagestyle{fancy} % Activate the fancyhdr package
+\fancyhf{} % Clear all header and footer fields
+
+\fancyhead[R]{\textbf{Deka, Karaminejad Ranjbar, Kumar, and Saggese \thepage}} % Right-aligned text
+
+% Optional: Header rule customization
+\renewcommand{\headrulewidth}{0.4pt} % Width of the header line
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1in} 
+    {\Large Problem Set 1} \\[1.5cm] % we include anything else? 
+
+
+    {\large \textbf{Rongmon Deka \\
+    Kimia Karaminejad Ranjbar \\
+    Ayush Kumar \\
+    Allegra Saggese}} \\[0.75cm] % all our names
+    {\Large Microeconomics 204C} \\[1.5cm]
+
+    {\large Friday April 11, 2025} % Due date
+    \\[2cm] 
+
+\end{titlepage}
+
+\section*{Problem 1} % Allegra 
+
+\subsection*{(a)}
+
+\[
+C(\{x, y\}) = y, \quad C(\{x, z\}) = z, \quad C(\{y, z\}) = y, \quad C(\{x, y, z\}) = y
+\]
+\\
+These choice sets result in the following preference relations $ y \succ x, z \succ x, y \succ z,$ and $y$ is preferred in a choice set containing all goods. Combining these preferences, we get a preference relation $y \succ z \succ x$ which is \textbf{consistent} for utility maximization. Given the budget sets, there is consistency of preferences, such that choice sets ($C(A)$), ($C(B)$), ($C(C)$) are within choice set ($C(D)$). We can say that $y$ is the best option, given $y \in A \subset D$, $y \in B \subset D$, and $y \in C \subset D$.  
+
+\begin{itemize}
+    \item \textbf{Necessity}:
+        \begin{gather*}
+        C(D) = argmax \{ u(y)\} \\
+        y \in A\subset D \text{ and } y = C(D) \\ 
+        C(D) = argmax \{ u(y)\} = y 
+        \end{gather*}
+    For any other variable, $x$, $U(x) < U(y) \forall y \in D$   because $B \subset D$, then $U(y) > U(x)$ for any $x \in B$, so $C(B) = y$. This also holds for $C(C)$.
+
+    \item \textbf{Sufficiency}: Similarly, lets look at a set of alternatives, $X = \{x,y,z\}$ where $C(X) = y$, then $C(X$ \textbackslash $\{y\}) = z$ (second best choice). Another budget set, $B$, where $B = \{y,z\} = y$, allows us to infer $ y \succ z \succ x$. Set $A = (X$ \textbackslash $\{x,z\})$ then $C(A) = y$ and $y \in B \subset D$, so $C(B) = y$. This holds also for $C(C)$ such that $C = (X$ \textbackslash $\{x\})$. This infers a reduction in redundant alternatives does not affect the agents' choice of $y$. 
+\end{itemize}
+
+\subsection*{(b)}
+
+\[
+C(A) = C(\{x, y\}) = x, \quad C(B) = C(\{x, z\}) = z, \quad C(C) = C(\{y, z\}) = y, \quad C(D) = C(\{x, y, z\}) = y
+\]
+
+From these choice sets, we get the following results: 
+\begin{gather*}
+    x \succ y \quad z \succ x \quad y \succ z \quad y \succ \{x,z\} \\
+    \implies y \succ z \succ x \succ y 
+\end{gather*}
+\\
+The following inequality is inconsistent where, when we combine the results of each choice within the separate budget sets, we end up getting both $y \succ x$ and $ x \succ y$. This violates the transitivity property of preferences that are required to be rational, and thus achieve IIA. If choices are not IIA, \textbf{consistency with utility maximization does not exists}. Similarly, we can consider the redudancy of alternative choices. In one scenario, $C(A)$, $x \succ y$, while in the scenario $C(D)$, $y \succ x$. This violates the independence of irrelevant alternatives (IIA) as $A \subset D$. Inconsistency occurs because removing the redundant alternatives from $D$ does actually reflect a change in the agent's choice, as seen in $A$. 
+
+
+
+
+\section*{Problem 2} % Kimia 
+
+
+\subsection*{(a)}
+\textbf{Consistent.}
+
+In this case, consider:
+\[
+C(A) = \arg\min_{x \in A} \{ u(x) \}
+\]
+
+IIA requires that removing irrelevant alternatives does not affect the relative ranking. A non-minimum alternative is considered an irrelevant alternative. Removing such a term does not affect the alternative chosen.
+
+
+\subsection*{(b)}
+\textbf{Inconsistent.}
+
+Based on the IIA definition, if \(x\) is the best in \(A\), then it is still the best in \(B \subseteq A\).
+
+If \(x \in B \subseteq A\) and \(x = C(A)\), then \(x = C(B)\).
+
+Let \(X = \{x_1, x_2, \ldots, x_n\}\) and it is ranked based on utility.
+
+The median element is chosen.  
+If the set has an odd number of elements,  
+\[
+\text{median} = x_{(n+1)/2}
+\]
+
+If the set has an even number of elements,  
+the median is the average of the middle elements, so that
+\[
+\text{median} = \frac{x_{(n/2)} + x_{(n/2)+1}}{2}
+\]
+
+Consider the case of adding vs. removing a low-utility alternative.  
+Removing the low-utility alternative shifts the element with the median utility, and the new set is a subset of the old set.   
+Since a new median would be computed from removing an element, it is inconsistent with IIA.
+
+\begin{itshape}
+The choice function is not consistent with IIA.
+
+Consider sets with an odd number of elements. Let $A = \{1, 2, 3, 4, 5\}$, where each element represents the utility given by the element. Then $C(A) = 3$. Define $B = \{1, 2, 3\}$, a strict subset of $A$ which includes $C(A) = 3$. But $C(B) = 2$, which violates IIA. Now define $B = \{3, 4 ,5\}$, another strict subset of A which includes $C(A) = 3$. Now $C(B) = 4$, which violates IIA.
+
+Consider sets with an even number of elements. Let $A = \{1, 2, 3, 4\}$, where each element represents the utility given by the element. Then $C(A) = \{2, 3\}$. Define $B = \{1, 2, 3\}$, a strict subset of $A$ which includes $C(A) = \{2, 3\}$. But $C(B) = 2$, which violates IIA. Now define $B = \{2, 3, 4\}$, another strict subset of $A$ which includes $C(A) = \{2, 3\}$. $C(B) = 3$, which violates IIA.
+
+Similar arguments show that the choice function is not consistent with IIA when the sets are continuous; for example, intervals in $\mathbb{R}$.
+\end{itshape}
+
+
+
+\section*{Problem 3} %Ayush
+\subsection*{(a)}
+Notice for $p_2=(2,1)$ and $m_2=24$ we have $x\cdot p_2=8+14=22\leq m_2=24$ thus $x$ is affordable for the new budget set, if $y=x$ then we have no contradiction. If $y\neq x$ then $y$ is revealed preferred to $x$, therefore $y$ must be unaffordable at $p_1=(1,1)$ and $m_1=18$ to be consistent with IIA and hence utility maximization. Hence, $y\cdot p_1=y_1+y_2>18$. Thus, the two conditions for being consistent are:
+\begin{gather*}
+   y\cdot p_1\leq m_1 \text{ and } y\cdot p_2\leq m_2  \text{ if } x=y \\
+   y \cdot p_1>m_1  \text{ and } y\cdot p_2 \leq m_2 \text{ if } x\neq y
+\end{gather*}
+
+\subsection*{(b)}
+Let $u(x)=x_1^\alpha x_2^\beta$ and $p=(2,1)$ and $m=24$ the maximization problem can be stated as:
+\begin{gather*}
+    \text{max } x_1^\alpha x_2^\beta \text{ s.t. } p\cdot x \leq m
+\end{gather*}
+
+the Lagrange thus can be written as:
+\[
+\mathcal{L}= x_1^\alpha x_2^\beta+\lambda(24-2x_1-x_2)
+\]
+FONC are:
+\begin{gather}
+    \alpha x_1^{\alpha-1}x_2^\beta-\lambda2=0 \\
+    \beta x_1^\alpha x_2^{\beta-1}-\lambda=0 \\
+    24-2x_1-x_2=0
+\end{gather}
+Multiplying $(2)$ by 2 and comparing with $(1)$ we have 
+\begin{gather*}
+    \alpha x_1^{\alpha-1}x_2^\beta=2\beta x_1^\alpha x_2^{\beta-1}
+\end{gather*}
+Note, optimal $x_1,x_2 \neq 0$ as if this were the case any positive deviation would yield greater utility thus, we have
+
+\begin{gather*}
+  \alpha x_2=2 \beta x_1 \text{ or } \frac{\alpha}{2\beta}x_2=x_1 
+\end{gather*}
+
+Substituting the above in $(3)$ we have 
+\begin{gather*}
+    24-\frac{\alpha}{\beta}x_2^*-x_2^*=0 \text{ hence, }\\
+    x_2^*=\frac{24}{1+\frac{\alpha}{\beta}}=\frac{24\beta}{\beta+\alpha} \text{ and } x_1^*=\frac{12 \alpha}{\beta \{1+\frac{\alpha}{\beta}\}}=\frac{12\alpha}{\beta+\alpha}
+\end{gather*}
+
+
+
+
+
+\section*{Problem 4} % Kimia 
+
+Given:
+\[
+C(\{x, y\}) = x\ \text{implies} \ x \ \text{is preferred to} \ y
+\]
+\[
+C(\{y, z\}) = y\ \text{implies} \ y \ \text{is preferred to} \ z
+\]
+
+Let \( S = \{x, y, z\} \). 
+
+By IIA,  
+the choice from \( S \) must align most with the choices in all pairwise subsets of \( S \).
+
+Evaluating the pairwise subsets of \( S \):
+
+\[
+C(\{x, y\}) = x \quad \text{implies} \quad y \notin C(S)
+\]
+\[
+C(\{y, z\}) = y \quad \text{implies} \quad z \notin C(S)
+\]
+
+
+Considering set \( S \), \quad \( C(S) \neq y \) and \( C(S) \neq z \). \quad 
+Thus \( C(S) = x \)
+
+\vspace{1em}
+By IIA, \quad \( C(\{x, z\}) \) must equal \( C(S) \) since \( \{x, z\} \in S \) \\
+Thus \( C(\{x, z\}) = x \)
+
+
+
+
+
+
+
+
+
+
+
+\section*{Problem 5} % rongmon
+\subsection*{(i)}
+\subsubsection*{i.} The choices available are $x = (8, 3)$ and $y = (4, 6)$. The reference points are 4 and 3.
+
+\begin{align*}
+    V(x) &= f(8 - 4) + f(3 - 3) = \sqrt{4} \\
+    V(y) &= f(4 - 4) + f(6 - 3) = \sqrt{3}
+\end{align*}
+
+Anna prefers $x$ over $y$.
+
+\subsubsection*{ii.} The choices available are $x = (8, 3)$, $y = (4, 6)$, and $d = (1, 5)$. The reference points are 1 and 3.
+
+\begin{align*}
+    V(x) &= f(8 - 1) + f(3 - 3) = \sqrt{7} \\
+    V(y) &= f(4 - 1) + f(6 - 3) = 2\sqrt{3} = \sqrt{4}\sqrt{3} = \sqrt{12} 
+\end{align*}
+
+Anna prefers $y$ over $x$.
+
+\subsubsection*{iii.} The choices available are $x = (8, 3)$, $y = (4, 6)$, and $z = (1, 7)$. The reference points are 1 and 3.
+
+\begin{align*}
+    V(x) &= f(8 - 1) + f(3 - 3) = \sqrt{7} \\
+    V(y) &= f(4 - 1) + f(6 - 3) = 2\sqrt{3} = \sqrt{4}\sqrt{3} = \sqrt{12}
+\end{align*}
+
+Anna prefers $y$ over $x$.
+
+
+\subsection*{(ii)} The choices available are $x = (8, 3)$, $y = (4, 6)$, and $z' = (t, 5)$, with $t > 0$.
+
+Let $r_{1}$ and $r_{2}$ denote the reference points for the first and second attributes.
+
+If $t < 4$, then $r_{1} = t$. If $t \geq 4$, then $r_{1} = 4$. We have $r_{2} = 3$.
+
+If $t < 4$, then $r_{1} = t$ and $V(y) > V(x) \iff \sqrt{4 - t} + \sqrt{3} > \sqrt{8 - t}$. When $0 < t < 3.916$, $y$ is preferred to $x$. If $t \geq 4$, then $r_{1} = 4$ and $V(x) > V(y)$, as shown above.
+
+
+\section*{Problem 6} %Ayush
+\subsection*{(i)}
+Let there be no status-quo bias then $r=(0,0)$ then $V_r(x)=f(7)+f(3)=7+3=10$ and similarly $V_r(y)=f(2)+f(7)=2+7=9$. Clearly $V_r(x)>V_r(y)$, therefore, Anna prefers $x$ over $y$ when there is no status quo.
+
+\subsection*{(ii)}
+Let $r=y=(2,7)$ then $V_r(y)=f(2-2)+f(7-7)=0$ and $V_r(x)=f(7-2)+f(3-7)=f(5)+f(-4)=5-8=-3$ thus $V_r(y)>V_r(x)$ hence, when $r=y$, $y$ is chosen over $x$.
+
+\subsection*{(iii)}
+Let $r=x=(7,3)$ then $V_r(x)=f(7-7)+f(3-3)=0$ and $V_r(y)=f(2-7)+f(7-3)=f(-5)+f(4)=-2\times5+4=-6$. As $V_r(x)>V_r(y)$ when $r=x$, $x$ is chosen over $y$.
+
+
+\end{document}

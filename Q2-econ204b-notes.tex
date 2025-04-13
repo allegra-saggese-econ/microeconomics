@@ -58,7 +58,7 @@
 % begin notes - combo of Matteo's and mine
 %------------------OVERVIEW - SEC 1 %---------------------%
 \section{Game theory}
-\subsection{MWG: 7, JR: 7.1,7.3}
+\subsection*{MWG: 7, JR: 7.1,7.3}
 \subsection{Structure}
 
 A \textbf{game} is a situation where 2+ agents face strategic independence in their payoffs, where player $i$'s payoff depend on her actions and the actions of others. Normal (or strategic) form games model environments where players act simultaneously or independently. \\
@@ -359,7 +359,7 @@ Extended (or extensive) form games (EFG) are important for depicting games where
 
 %----------------SIMULTANEOUS GAMES - SEC 2 %--------------------%
 \section{Simultaneous Games}
-\subsection{MWG: 7, 8, JR: 7.2, 7.3}
+\subsection*{MWG: 7, 8, JR: 7.2, 7.3}
 
 \subsection{Pure strategy}
 
@@ -613,8 +613,8 @@ Such \(s^*\) is the pure strategy Nash equilibrium. \\
 
 \noindent \textbf{Computing Randomized Nash Equilibria}: 
 We are given some game, including a given set of players \( N \) and, for each \( i \in N \), a given set of feasible actions \( C_i \) for player \( i \) and a given payoff function \( u_i: C_1 \times \dots \times C_n \to \mathbb{R} \) for player \( i \).
-
-
+\\
+\\
 \noindent The \textbf{support} of a randomized equilibrium is, for each player, the set of actions that have positive probability of being chosen in this equilibrium. To find a Nash equilibrium, we can apply the following 5-step method:
 
 \begin{enumerate}
@@ -676,29 +676,31 @@ The support for each player \( i \) is the set of actions \( s_i \in C_i \) for 
 
 
 %------------------DYNAMIC GAMES - SEC 4 %---------------------%
-\section{Dynamic games}\label{DG}
+\section{Dynamic games}\label{DG} % START HERE
+\subsection*{MWG: 9}
 
 \subsection{Backward induction}
 
-\subsection{Sub-game perfect Nash Equilibrium}
+\subsection{Sub-game perfect Nash Equilibrium}\label{spne}
 
 \subsection{Problem types}
 
 
 %------------------INCOMPLETE INFO - SEC 5 %---------------------%
 \section{Incomplete information}\label{II}
+\subsection*{MWG: 8.E 12, 14.A-C}
 
 \subsection{Bayesian games}\label{bayes}
 
 \subsection{Bayesian nash equilibrium concepts}\label{WPBNE}
 
-\textbf{Bayesian Nash Equilibrium}: a strategy profile \(\{s_i(\theta_i)\}\) such that each player maximizes their expected utility given their beliefs about the types of other players:
+\textbf{Definition:} Bayesian Nash Equilibrium is a strategy profile \(\{s_i(\theta_i)\}\) such that each player maximizes their expected utility given their beliefs about the types of other players:
 \[
 E[u_i(s_i(\theta_i), s_{-i}(\theta_{-i}) | \theta_i] \geq E[u_i(s_i', s_{-i}(\theta_{-i}) | \theta_i], \quad \forall s_i' \in S_i, \quad \forall \theta_i \in \Theta_i.
-\]
+\] \\
 
 
-\textbf{Definition: Weak Perfect Bayesian Equilibrium (WPBE)} \\
+\noindent \textbf{Definition}: Weak Perfect Bayesian Equilibrium (WPBE) \\
 A profile of strategies and system of beliefs $(\sigma, \mu)$ is a weak perfect Bayesian equilibrium (WPBE) in an extensive form game $\Gamma_E$ if:
 \begin{itemize}
     \item[(i)] The strategy profile $\sigma$ is sequentially rational given belief system $\mu$.
@@ -708,8 +710,7 @@ A profile of strategies and system of beliefs $(\sigma, \mu)$ is a weak perfect 
     \]
 \end{itemize}
 \\
-\\
-\textbf{Definition: Sequential Equilibrium} \\
+\noindent \textbf{Definition}: Sequential Equilibrium \\
 A strategy profile and system of beliefs $(\sigma, \mu)$ is a sequential equilibrium of an extensive form game $\Gamma_E$ if:
 \begin{enumerate}
     \item The strategy profile $\sigma$ is sequentially rational given belief system $\mu$.
@@ -722,7 +723,7 @@ A strategy profile and system of beliefs $(\sigma, \mu)$ is a sequential equilib
 \end{enumerate} 
 \\
 \\
-\textbf{Proposition: Relationship between WPBE and Nash Equilibrium} $\Rightarrow$ A strategy profile $\sigma$ is a Nash equilibrium of an extensive form game $\Gamma_E$ if and only if there exists a system of beliefs $\mu$ such that:
+\textbf{Proposition:} Relationship between WPBE and Nash Equilibrium $\Rightarrow$ A strategy profile $\sigma$ is a Nash equilibrium of an extensive form game $\Gamma_E$ if and only if there exists a system of beliefs $\mu$ such that:
 \begin{enumerate}
     \item Strategy profile $\sigma$ is sequentially rational given $\mu$ at all info sets $H$ such that $\Pr [H | \sigma] > 0$.
     \item The system of beliefs $\mu$ is derived from $\sigma$ through Bayes’ rule whenever possible.
@@ -736,7 +737,7 @@ Every WPBE is a Nash equilibrium, but not all Nash equilibria are WPBE.
 
 \subsubsection{Signalling (in the labor market)}
 
-\textbf{Lemma: Separating Equilibria in Signaling Games}: In any \textbf{separating Perfect Bayesian Equilibrium (PBE)}, the equilibrium wages satisfy:
+\textbf{Lemma} Separating Equilibria in signaling games: In any \textbf{separating PBE}, the equilibrium wages satisfy:
 \[
 w^*(e^*(\theta_H)) = \theta_H, \quad w^*(e^*(\theta_L)) = \theta_L.
 \]
@@ -747,14 +748,15 @@ That is, each worker type receives a wage equal to her productivity level.
 
 %------------------OLIGOPOLIES- SEC 6 %---------------------%
 \section{Static oligopoly models}\label{SO}
+\subsection*{MWG: 12}
 
 \subsection{Bertrand Competition}
 
 \textbf{Propositions:}
 \begin{itemize}
-    \item \textbf{Subgame Perfect Nash Equilibrium in Bertrand Duopoly}: The strategies described for price-setting in Bertrand duopoly constitute a \textbf{subgame perfect Nash equilibrium (SPNE)} if and only if $\delta \geq 1/2$.
+    \item \textbf{Subgame Perfect Nash Equilibrium in Bertrand Duopoly}: The strategies described for price-setting in Bertrand duopoly constitute a \textbf{SPNE} (see \ref{spne}) if and only if $\delta \geq 1/2$.
     
-    \item \textbf{SPNE in Infinitely Repeated Bertrand Duopoly}: In an infinitely repeated \textbf{Bertrand duopoly game}, when $\delta \geq 1/2$, repeated choice of any price $p \in [c, p_m]$ can be supported as an \textbf{SPNE outcome path} using Nash reversion strategies.
+    \item \textbf{SPNE in Infinitely Repeated Bertrand Duopoly}: In an infinitely repeated Bertrand duopoly game, when $\delta \geq 1/2$, repeated choice of any price $p \in [c, p_m]$ can be supported as an SPNE outcome path using Nash reversion strategies.
 
 \end{itemize}
 
@@ -773,13 +775,12 @@ A strategy profile $s = (s_1, ..., s_I)$ in an infinitely repeated game is one o
 \begin{itemize}
     \item \textbf{Folk Theorem for Repeated Games}: In an infinitely repeated game, any feasible discounted payoffs that give each player, on a per-period basis, more than the lowest payoff that they could guarantee in a \textbf{single-play simultaneous-move component game}, can be sustained as the payoffs of an \textbf{SPNE} if players discount the future sufficiently.
 
-    \item \textbf{Sustaining Cooperation in Repeated Games}: If there is potential for joint improvement in payoffs near the stage game \textbf{Nash equilibrium}, then for sufficiently high $\delta$, there exists a \textbf{subgame perfect equilibrium (SPNE)} where payoffs exceed those in the static \textbf{Nash equilibrium}. 
+    \item \textbf{Sustaining Cooperation in Repeated Games}: If there is potential for joint improvement in payoffs near the stage game \textbf{Nash equilibrium}, then for sufficiently high $\delta$, there exists a SPNE where payoffs exceed those in the static \textbf{Nash equilibrium}. 
     
     \item \textbf{Credible Punishment in Repeated Games}: If each player’s stage game Nash equilibrium payoff strictly exceeds their minimax payoff, then there exists an SPNE with more severe punishments than Nash reversion 
-\end{itemize}
-\\
+\end{itemize}\\
 
-\textbf{Lemma 1: Nash Reversion Strategies and SPNE}: A Nash reversion strategy profile that calls for playing outcome path $Q = \{q_{1t} , ..., q_{It}\}_{t=1}^{\infty}$ prior to any deviation is an \textbf{SPNE} if and only if:
+\noindent \textbf{Lemma 1: Nash Reversion Strategies and SPNE}: A Nash reversion strategy profile that calls for playing outcome path $Q = \{q_{1t} , ..., q_{It}\}_{t=1}^{\infty}$ prior to any deviation is an \textbf{SPNE} if and only if:
 \[
 \hat{\pi}_i(q_{-it}) + \frac{d}{1 - d} \pi_i(q^*) \leq v_i(Q, t), \quad \forall t, i
 \]
